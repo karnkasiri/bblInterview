@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "Status" AS ENUM ('ACTIVE', 'INACTIVE');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
@@ -7,6 +10,9 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
     "website" TEXT NOT NULL,
+    "status" "Status" NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -19,6 +25,8 @@ CREATE TABLE "Address" (
     "city" TEXT NOT NULL,
     "zipcode" TEXT NOT NULL,
     "userId" INTEGER,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Address_pkey" PRIMARY KEY ("id")
 );
@@ -28,7 +36,7 @@ CREATE TABLE "Geo" (
     "id" TEXT NOT NULL,
     "lat" TEXT NOT NULL,
     "lng" TEXT NOT NULL,
-    "addressId" TEXT,
+    "addressId" TEXT NOT NULL,
 
     CONSTRAINT "Geo_pkey" PRIMARY KEY ("id")
 );
@@ -40,6 +48,8 @@ CREATE TABLE "Company" (
     "catchPhrase" TEXT NOT NULL,
     "bs" TEXT NOT NULL,
     "userId" INTEGER,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Company_pkey" PRIMARY KEY ("id")
 );
@@ -50,6 +60,9 @@ CREATE TABLE "Post" (
     "title" TEXT NOT NULL,
     "body" TEXT NOT NULL,
     "userId" INTEGER,
+    "status" "Status" NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
 );
@@ -57,11 +70,14 @@ CREATE TABLE "Post" (
 -- CreateIndex
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Geo_addressId_key" ON "Geo"("addressId");
+
 -- AddForeignKey
 ALTER TABLE "Address" ADD CONSTRAINT "Address_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Geo" ADD CONSTRAINT "Geo_addressId_fkey" FOREIGN KEY ("addressId") REFERENCES "Address"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Geo" ADD CONSTRAINT "Geo_addressId_fkey" FOREIGN KEY ("addressId") REFERENCES "Address"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Company" ADD CONSTRAINT "Company_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

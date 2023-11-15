@@ -11,16 +11,19 @@ datasource db {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
-  name     String
-  username String    @unique
-  password String
-  email    String
-  phone    String
-  website  String
-  address  Address[]
-  company  Company[]
-  post     Post[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  username  String    @unique
+  password  String
+  email     String
+  phone     String
+  website   String
+  address   Address[]
+  company   Company[]
+  post      Post[]
+  status    Status
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
 }
 
 model Address {
@@ -29,18 +32,19 @@ model Address {
   suite   String
   city    String
   zipcode String
-  geo     Geo[]
-
-  User   User? @relation(fields: [userId], references: [id])
-  userId Int?
+  geo     Geo?
+  User    User? @relation(fields: [userId], references: [id])
+  userId  Int?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
 }
 
 model Geo {
   id        String   @id @default(uuid())
   lat       String
   lng       String
-  Address   Address? @relation(fields: [addressId], references: [id])
-  addressId String?
+  Address   Address @relation(fields: [addressId], references: [id])
+  addressId String  @unique
 }
 
 model Company {
@@ -50,6 +54,8 @@ model Company {
   bs          String
   User        User?  @relation(fields: [userId], references: [id])
   userId      Int?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
 }
 
 model Post {
@@ -58,4 +64,12 @@ model Post {
   body   String
   User   User?  @relation(fields: [userId], references: [id])
   userId Int?
+  status Status
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
 }

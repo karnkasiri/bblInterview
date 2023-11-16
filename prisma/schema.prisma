@@ -18,8 +18,8 @@ model User {
   email     String
   phone     String
   website   String
-  address   Address[]
-  company   Company[]
+  address   Address?
+  company   Company?
   post      Post[]
   status    Status
   createdAt DateTime  @default(now())
@@ -34,7 +34,7 @@ model Address {
   zipcode String
   geo     Geo?
   User    User? @relation(fields: [userId], references: [id])
-  userId  Int?
+  userId  Int   @unique 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now())
 }
@@ -53,7 +53,7 @@ model Company {
   catchPhrase String
   bs          String
   User        User?  @relation(fields: [userId], references: [id])
-  userId      Int?
+  userId      Int    @unique 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now())
 }

@@ -9,8 +9,8 @@ export interface IUser {
     email: string
     phone: string
     website: string
-    address: IAddress[]
-    company: ICompany[]
+    address?: IAddress
+    company?: ICompany
     post?: IPost[]
     status: Status
     createdAt: Date

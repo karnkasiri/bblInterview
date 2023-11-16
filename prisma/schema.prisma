@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
@@ -14,14 +14,13 @@ model User {
   id        Int       @id @default(autoincrement())
   name      String
   username  String    @unique
-  password  String
   email     String
   phone     String
   website   String
   address   Address?
   company   Company?
   post      Post[]
-  status    Status
+  status    String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now())
 }
@@ -64,12 +63,12 @@ model Post {
   body   String
   User   User?  @relation(fields: [userId], references: [id])
   userId Int?
-  status Status
+  status String
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now())
 }
 
-enum Status {
-  ACTIVE
-  INACTIVE
-}
+// enum Status {
+//   ACTIVE
+//   INACTIVE
+// }

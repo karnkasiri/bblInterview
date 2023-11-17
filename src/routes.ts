@@ -1,8 +1,11 @@
 import express from 'express'
 import * as userController from './controller/user.controller'
 import * as postController from './controller/post.controller'
+import { checkAuth } from './middlewares/authorize'
 
 const router = express.Router()
+
+router.use(checkAuth)
 
 router.get('/users/:id', userController.getUser)
 router.get('/users', userController.getUserList)

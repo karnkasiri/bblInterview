@@ -1,21 +1,25 @@
 import express from 'express'
-import { createServer } from 'http'
-import passport from 'passport'
-import bodyParser from 'body-parser'
-import setupAuthentication from '../src/middlewares/authentication'
+import session from 'express-session'
+import { configureAuthentication } from '../src/middlewares/authentication'
 import router from '../src/routes'
 
 const app = express()
 
-const server = createServer(app)
+app.use(
+    session({
+        secret: 'uwqXMX6mdG',
+        resave: false,
+        saveUninitialized: true,
+    })
+)
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+configureAuthentication(app)
+
 app.use('/', router)
-// setupAuthentication(app, passport)
 
 const PORT = process.env.PORT || 3000
-
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`)
 })
+
+

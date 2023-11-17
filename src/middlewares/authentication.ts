@@ -1,16 +1,10 @@
-import { Express } from 'express'
-import session from 'express-session'
-import { PassportStatic } from 'passport'
+import { Express, Request, Response } from 'express'
+import passport from 'passport'
 import { Strategy as OpenIDConnectStrategy } from 'passport-openidconnect'
+import { IUserProfile } from '../domains/interface/userProfile.interface'
 
-export default async function configureAuthentication(app: Express, passport: PassportStatic) {
-    app.use(
-        session({
-            secret: 'your-secret-key',
-            resave: false,
-            saveUninitialized: true,
-        })
-    )
+export const configureAuthentication = async (app: Express) => {
+
     passport.use(
         'openidconnect',
         new OpenIDConnectStrategy(
@@ -23,14 +17,13 @@ export default async function configureAuthentication(app: Express, passport: Pa
                 clientSecret: '',
                 callbackURL: 'http://localhost:3000/callback',
                 scope: ['openid', 'profile', 'email'],
-                responseMode: 'form_post'
             },
             (issuer: string, profile: any, context: object, idToken: string | object, accessToken: string | object, refreshToken: string, done: any) => {
-                const userWithIdToken = {
-                    ...profile,
+                const user = {
+                    profile,
                     idToken
                 }
-                return done(null, userWithIdToken)
+                return done(null, user)
             }
         )
     )
@@ -48,7 +41,7 @@ export default async function configureAuthentication(app: Express, passport: Pa
 
     app.get('/login', passport.authenticate('openidconnect'))
 
-    app.post(
+    app.get(
         '/callback',
         passport.authenticate('openidconnect', {
             successRedirect: '/',
@@ -57,18 +50,18 @@ export default async function configureAuthentication(app: Express, passport: Pa
     )
 
     app.get('/logout', (req, res) => {
-        req.logout(() => { })
+        req.logout((err) => console.log(err))
         res.redirect('/')
     })
 
     app.get('/', (req, res) => {
         if (req.isAuthenticated()) {
-            console.log(req)
-            console.log('Hello, ka!')
+            const user = req.user as IUserProfile
+            res.status(200).send({ token: user.idToken })
         } else {
-            console.log('Error, ka!')
+            res.status(401).send('login fail')
         }
     })
-}
 
+}
 

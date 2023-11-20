@@ -1,5 +1,6 @@
 import express from 'express'
 import session from 'express-session'
+import bodyParser from 'body-parser'
 import { configureAuthentication } from '../src/middlewares/authentication'
 import router from '../src/routes'
 
@@ -12,6 +13,10 @@ app.use(
         saveUninitialized: true,
     })
 )
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
 
 configureAuthentication(app)
 

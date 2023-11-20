@@ -35,7 +35,7 @@ export class Post implements IPostService {
 
     public async createPost(post: IPost): Promise<IPost> {
         try {
-            const data = await prisma.post.create({ data: post })
+            const data = await prisma.post.create({ data: { ...post, status: Status.ACTIVE } })
             return data as IPost
 
         } catch (err) {
@@ -45,7 +45,7 @@ export class Post implements IPostService {
 
     public async updatePost(id: number, post: IPost): Promise<IPost> {
         try {
-            const data = await prisma.post.update({ where: { id }, data: post })
+            const data = await prisma.post.update({ where: { id }, data: { ...post, updatedAt: new Date() } })
             return data as IPost
 
         } catch (err) {
@@ -55,7 +55,13 @@ export class Post implements IPostService {
 
     public async deletePost(id: number): Promise<IPost> {
         try {
-            const data = await prisma.post.update({ where: { id }, data: { status: Status.INACTIVE } })
+            const data = await prisma.post.update({
+                where: { id },
+                data: {
+                    status: Status.INACTIVE,
+                    updatedAt: new Date()
+                }
+            })
             return data as IPost
 
         } catch (err) {

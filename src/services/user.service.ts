@@ -64,6 +64,7 @@ export class User implements IUserService {
 
             const dataCreate: any = {
                 ...userData,
+                status: Status.ACTIVE,
                 address: {
                     create: {
                         ...address,
@@ -120,7 +121,8 @@ export class User implements IUserService {
             const data = await prisma.user.update({
                 where: { id },
                 data: {
-                    ...dataUpdate
+                    ...dataUpdate,
+                    updatedAt: new Date()
                 },
                 include: {
                     address: {
@@ -140,7 +142,7 @@ export class User implements IUserService {
 
     public async deleteUser(id: number): Promise<IUser> {
         try {
-            const data = await prisma.user.update({ where: { id }, data: { status: Status.INACTIVE } })
+            const data = await prisma.user.update({ where: { id }, data: { status: Status.INACTIVE, updatedAt: new Date() } })
 
             if (!data) throw new Error("Update Data Fail")
             return data as IUser

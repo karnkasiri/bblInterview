@@ -7,8 +7,8 @@ const router = express.Router()
 
 router.use(checkAuth)
 
-router.get('/users/:id', userController.getUser)
 router.get('/users', userController.getUserList)
+router.get('/users/:id', userController.getUser)
 router.post('/users', userController.createUser)
 router.put('/users/:id', userController.updateUser)
 router.patch('/users/:id', userController.updatePatchUser)

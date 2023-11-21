@@ -1,0 +1,695 @@
+openapi: 3.0.0
+info:
+  title: Your API
+  version: 1.0.0
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+paths:
+  /users:
+    post:
+      summary: Create user
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: User data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                address:
+                  type: object
+                  properties:
+                    street:
+                      type: string
+                    suite:
+                      type: string
+                    city:
+                      type: string
+                    zipcode:
+                      type: string
+                    geo:
+                      type: object
+                      properties:
+                        lat:
+                          type: string
+                        lng:
+                          type: string
+                phone:
+                  type: string
+                website:
+                  type: string
+                company:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    catchPhrase:
+                      type: string
+                    bs:
+                      type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+              "message": "sucess",
+              "data": {
+                  "id": 1,
+                  "name": "Leanne Graham",
+                  "username": "Bret",
+                  "email": "Sincere@april.biz",
+                  "phone": "1-770-736-8031 x56442",
+                  "website": "hildegard.org",
+                  "status": "ACTIVE",
+                  "createdAt": "2023-11-20T09:12:08.214Z",
+                  "updatedAt": "2023-11-20T09:12:08.214Z",
+                  "address": {
+                      "id": "304c97dd-a41c-4d91-a376-e2663ffbec29",
+                      "street": "Kulas Light",
+                      "suite": "Apt. 556",
+                      "city": "Gwenborough",
+                      "zipcode": "92998-3874",
+                      "userId": 1,
+                      "createdAt": "2023-11-20T09:12:08.214Z",
+                      "updatedAt": "2023-11-20T09:12:08.214Z",
+                      "geo": {
+                          "id": "aa79952e-75b7-4b2c-9624-aa064aeab88c",
+                          "lat": "-37.3159",
+                          "lng": "81.1496",
+                          "addressId": "304c97dd-a41c-4d91-a376-e2663ffbec29"
+                      }
+                  },
+                  "company": {
+                      "id": "f16f72fe-1bcd-4a0b-9bed-adbe9bf609bd",
+                      "name": "Romaguera-Crona",
+                      "catchPhrase": "Multi-layered client-server neural-net",
+                      "bs": "harness real-time e-markets",
+                      "userId": 1,
+                      "createdAt": "2023-11-20T09:12:08.214Z",
+                      "updatedAt": "2023-11-20T09:12:08.214Z"
+                  }
+                }
+            }
+        '400':
+          description: 'Create Data Fail : error'
+    get:
+      summary: Get all user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": [
+                              {
+                                  "id": 1,
+                                  "name": "Leanne Graham",
+                                  "username": "Bret",
+                                  "email": "Sincere@april.biz",
+                                  "phone": "1-770-736-8031 x56442",
+                                  "website": "hildegard.org",
+                                  "status": "ACTIVE",
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z",
+                                  "address": {
+                                      "id": "304c97dd-a41c-4d91-a376-e2663ffbec29",
+                                      "street": "Kulas Light",
+                                      "suite": "Apt. 556",
+                                      "city": "Gwenborough",
+                                      "zipcode": "92998-3874",
+                                      "userId": 1,
+                                      "createdAt": "2023-11-20T09:12:08.214Z",
+                                      "updatedAt": "2023-11-20T09:12:08.214Z",
+                                      "geo": {
+                                          "lat": "-37.3159",
+                                          "lng": "81.1496"
+                                      }
+                                  },
+                                  "company": {
+                                      "id": "f16f72fe-1bcd-4a0b-9bed-adbe9bf609bd",
+                                      "name": "Romaguera-Crona",
+                                      "catchPhrase": "Multi-layered client-server neural-net",
+                                      "bs": "harness real-time e-markets",
+                                      "userId": 1,
+                                      "createdAt": "2023-11-20T09:12:08.214Z",
+                                      "updatedAt": "2023-11-20T09:12:08.214Z"
+                                  }
+                              },
+                              {
+                                  "id": 2,
+                                  "name": "Ervin Howell",
+                                  "username": "Antonette",
+                                  "email": "Shanna@melissa.tv",
+                                  "phone": "010-692-6593 x09125",
+                                  "website": "anastasia.net",
+                                  "status": "ACTIVE",
+                                  "createdAt": "2023-11-20T09:40:29.934Z",
+                                  "updatedAt": "2023-11-20T09:40:29.934Z",
+                                  "address": {
+                                      "id": "ef356f9f-f88f-4c93-97a4-cc399310b439",
+                                      "street": "Victor Plains",
+                                      "suite": "Suite 879",
+                                      "city": "Wisokyburgh",
+                                      "zipcode": "90566-7771",
+                                      "userId": 2,
+                                      "createdAt": "2023-11-20T09:40:29.934Z",
+                                      "updatedAt": "2023-11-20T09:40:29.934Z",
+                                      "geo": {
+                                          "lat": "-43.9509",
+                                          "lng": "-34.4618"
+                                      }
+                                  },
+                                  "company": {
+                                      "id": "dd0c87ba-4264-4224-83be-7382eef03f1c",
+                                      "name": "Deckow-Crist",
+                                      "catchPhrase": "Proactive didactic contingency",
+                                      "bs": "synergize scalable supply-chains",
+                                      "userId": 2,
+                                      "createdAt": "2023-11-20T09:40:29.934Z",
+                                      "updatedAt": "2023-11-20T09:40:29.934Z"
+                                  }
+                              }
+                          ]
+                        }
+        '400':
+          description: 'Get Data Fail : Data Not Found'
+  /users/{id}:
+    get:
+      summary: Get user by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "name": "Leanne Graham",
+                              "username": "Bret",
+                              "email": "Sincere@april.biz",
+                              "phone": "1-770-736-8031 x56442",
+                              "website": "hildegard.org",
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T09:12:08.214Z",
+                              "updatedAt": "2023-11-20T09:12:08.214Z",
+                              "address": {
+                                  "id": "304c97dd-a41c-4d91-a376-e2663ffbec29",
+                                  "street": "Kulas Light",
+                                  "suite": "Apt. 556",
+                                  "city": "Gwenborough",
+                                  "zipcode": "92998-3874",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z",
+                                  "geo": {
+                                      "lat": "-37.3159",
+                                      "lng": "81.1496"
+                                  }
+                              },
+                              "company": {
+                                  "id": "f16f72fe-1bcd-4a0b-9bed-adbe9bf609bd",
+                                  "name": "Romaguera-Crona",
+                                  "catchPhrase": "Multi-layered client-server neural-net",
+                                  "bs": "harness real-time e-markets",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z"
+                              }
+                          }
+                      }
+        
+        '400':
+          description: 'Get Data Fail : Data Not Found'
+      
+    put:
+      summary: Update user by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                website:
+                  type: string
+                status:
+                  type: string
+                address:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    street:
+                      type: string
+                    suite:
+                      type: string
+                    city:
+                      type: string
+                    zipcode:
+                      type: string
+                    geo:
+                      type: object
+                      properties:
+                        lat:
+                          type: string
+                        lng:
+                          type: string
+                company:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    catchPhrase:
+                      type: string
+                    bs:
+                      type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "name": "Name Update",
+                              "username": "Bret",
+                              "email": "Sincere@april.biz",
+                              "phone": "1-770-736-8031 x56442",
+                              "website": "hildegard.org",
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T09:12:08.214Z",
+                              "updatedAt": "2023-11-20T09:12:08.214Z",
+                              "address": {
+                                  "id": "304c97dd-a41c-4d91-a376-e2663ffbec29",
+                                  "street": "Kulas Light",
+                                  "suite": "Apt. 556",
+                                  "city": "Gwenborough",
+                                  "zipcode": "92998-3874",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z",
+                                  "geo": {
+                                      "lat": "-37.3159",
+                                      "lng": "81.1496"
+                                  }
+                              },
+                              "company": {
+                                  "id": "f16f72fe-1bcd-4a0b-9bed-adbe9bf609bd",
+                                  "name": "Romaguera-Crona",
+                                  "catchPhrase": "Multi-layered client-server neural-net",
+                                  "bs": "harness real-time e-markets",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z"
+                              }
+                          }
+                      }
+        
+        '400':
+          description: 'Update Data Fail : error'
+          
+    patch:
+      summary: Update user specific fields by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "name": "Name UpdateSpecific",
+                              "username": "Bret",
+                              "email": "Sincere@april.biz",
+                              "phone": "1-770-736-8031 x56442",
+                              "website": "hildegard.org",
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T09:12:08.214Z",
+                              "updatedAt": "2023-11-20T09:12:08.214Z",
+                              "address": {
+                                  "id": "304c97dd-a41c-4d91-a376-e2663ffbec29",
+                                  "street": "Kulas Light",
+                                  "suite": "Apt. 556",
+                                  "city": "Gwenborough",
+                                  "zipcode": "92998-3874",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z",
+                                  "geo": {
+                                      "lat": "-37.3159",
+                                      "lng": "81.1496"
+                                  }
+                              },
+                              "company": {
+                                  "id": "f16f72fe-1bcd-4a0b-9bed-adbe9bf609bd",
+                                  "name": "Romaguera-Crona",
+                                  "catchPhrase": "Multi-layered client-server neural-net",
+                                  "bs": "harness real-time e-markets",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z"
+                              }
+                          }
+                      }
+        
+        '400':
+          description: 'Update Data Fail : error'
+
+    delete:
+      summary: Delete user by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "name": "Leanne Graham",
+                              "username": "Bret",
+                              "email": "Sincere@april.biz",
+                              "phone": "1-770-736-8031 x56442",
+                              "website": "hildegard.org",
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T09:12:08.214Z",
+                              "updatedAt": "2023-11-20T09:12:08.214Z",
+                              "address": {
+                                  "id": "304c97dd-a41c-4d91-a376-e2663ffbec29",
+                                  "street": "Kulas Light",
+                                  "suite": "Apt. 556",
+                                  "city": "Gwenborough",
+                                  "zipcode": "92998-3874",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z",
+                                  "geo": {
+                                      "lat": "-37.3159",
+                                      "lng": "81.1496"
+                                  }
+                              },
+                              "company": {
+                                  "id": "f16f72fe-1bcd-4a0b-9bed-adbe9bf609bd",
+                                  "name": "Romaguera-Crona",
+                                  "catchPhrase": "Multi-layered client-server neural-net",
+                                  "bs": "harness real-time e-markets",
+                                  "userId": 1,
+                                  "createdAt": "2023-11-20T09:12:08.214Z",
+                                  "updatedAt": "2023-11-20T09:12:08.214Z"
+                              }
+                          }
+                      }
+        
+        '400':
+          description: 'Delete Data Fail : error'
+      
+  /posts:
+    post:
+      summary: Create post
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: integer
+                title:
+                  type: string
+                body:
+                  type: string
+            
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                              "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+                              "userId": 1,
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T10:50:07.032Z",
+                              "updatedAt": "2023-11-20T10:50:07.032Z"
+                            }
+                        }
+        '400':
+          description: 'Create Data Fail : error'
+    get:
+      summary: Get all post
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": [
+                              {
+                                  "id": 1,
+                                  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                                  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+                                  "userId": 1,
+                                  "status": "ACTIVE",
+                                  "createdAt": "2023-11-20T10:50:07.032Z",
+                                  "updatedAt": "2023-11-20T10:50:07.032Z"
+                              },
+                              {
+                                  "id": 2,
+                                  "title": "qui est esse",
+                                  "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
+                                  "userId": 1,
+                                  "status": "ACTIVE",
+                                  "createdAt": "2023-11-20T10:54:14.810Z",
+                                  "updatedAt": "2023-11-20T10:54:14.810Z"
+                              }
+                          ]
+                      }
+        '400':
+          description: 'Get Data Fail : Data Not Found'
+  /posts/{id}:
+    get:
+      summary: Get post by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                              "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+                              "userId": 1,
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T10:50:07.032Z",
+                              "updatedAt": "2023-11-20T10:50:07.032Z"
+                            }
+                        }
+        
+        '400':
+          description: 'Get Data Fail : Data Not Found'
+    
+    put:
+      summary: Update post by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: integer
+                title:
+                  type: string
+                body:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "title": "title update",
+                              "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+                              "userId": 1,
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T10:50:07.032Z",
+                              "updatedAt": "2023-11-20T10:50:07.032Z"
+                            }
+                        }
+        '400':
+          description: 'Update Data Fail : error'
+          
+    patch:
+      summary: Update post specific fields by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "title": "title update specific",
+                              "body": "body update specific",
+                              "userId": 1,
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T10:50:07.032Z",
+                              "updatedAt": "2023-11-20T10:50:07.032Z"
+                            }
+                        }
+        '400':
+          description: 'Update Data Fail : error'
+
+    delete:
+      summary: Delete post by id
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example: {
+                          "message": "sucess",
+                          "data": {
+                              "id": 1,
+                              "title": "title update",
+                              "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+                              "userId": 1,
+                              "status": "ACTIVE",
+                              "createdAt": "2023-11-20T10:50:07.032Z",
+                              "updatedAt": "2023-11-20T10:50:07.032Z"
+                            }
+                        }
+        '400':
+          description: 'Delete Data Fail : error'
+          
+          
+    

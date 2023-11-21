@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "5e1bd151-777e-4a75-a0e1-cbec05d76ef9",
+		"name": "bblInterview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8714337"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ervin Howell\",\n    \"username\": \"Antonette\",\n    \"email\": \"Shanna@melissa.tv\",\n    \"address\": {\n        \"street\": \"Victor Plains\",\n        \"suite\": \"Suite 879\",\n        \"city\": \"Wisokyburgh\",\n        \"zipcode\": \"90566-7771\",\n        \"geo\": {\n            \"lat\": \"-43.9509\",\n            \"lng\": \"-34.4618\"\n        }\n    },\n    \"phone\": \"010-692-6593 x09125\",\n    \"website\": \"anastasia.net\",\n    \"company\": {\n        \"name\": \"Deckow-Crist\",\n        \"catchPhrase\": \"Proactive didactic contingency\",\n        \"bs\": \"synergize scalable supply-chains\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Leanne Update\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJlZGUyYjU5LTVlNWMtNDI1NS1hMWU1LTg5MDgzZjljNDVmZSIsInVzZXJuYW1lIjoiVXNlcjEyMzQ1IiwiZW1haWwiOiJ0ZXN0MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5OTA5MDczNzAyMiwiZXhwIjoxNjk5MDkwNzQwNjIyfQ.iKjGGSumcFGcDnfZbaRyobyag1NzcuoyqoLFLSIgY-I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John UpdateSpecific\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "create post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 1,\n    \"title\": \"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\",\n    \"body\": \"quia et suscipit\\nsuscipit recusandae consequuntur expedita et cum\\nreprehenderit molestiae ut ut quas totam\\nnostrum rerum est autem sunt rem eveniet architecto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJlZGUyYjU5LTVlNWMtNDI1NS1hMWU1LTg5MDgzZjljNDVmZSIsInVzZXJuYW1lIjoiVXNlcjEyMzQ1IiwiZW1haWwiOiJ0ZXN0MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5OTA5MDczNzAyMiwiZXhwIjoxNjk5MDkwNzQwNjIyfQ.iKjGGSumcFGcDnfZbaRyobyag1NzcuoyqoLFLSIgY-I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"post title update\",\n  \"body\": \"post body update\",\n  \"userId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/posts/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJlZGUyYjU5LTVlNWMtNDI1NS1hMWU1LTg5MDgzZjljNDVmZSIsInVzZXJuYW1lIjoiVXNlcjEyMzQ1IiwiZW1haWwiOiJ0ZXN0MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY5OTA5MDczNzAyMiwiZXhwIjoxNjk5MDkwNzQwNjIyfQ.iKjGGSumcFGcDnfZbaRyobyag1NzcuoyqoLFLSIgY-I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"post update specific\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/posts/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InRPdTBGSGNOM0MyZXRyZWw0UWhheiJ9.eyJ1c2VyX2lkIjoxLCJuaWNrbmFtZSI6ImNhbmRpZGF0ZSIsIm5hbWUiOiJDYW5keSIsInBpY3R1cmUiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci81NDY5OGZiODdjOTE3OTEyN2I4ZmQyMTBmYmEyMmE4MD9zPTQ4MCZyPXBnJmQ9aHR0cHMlM0ElMkYlMkZjZG4uYXV0aDAuY29tJTJGYXZhdGFycyUyRmNhLnBuZyIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTIwVDA4OjQzOjI5LjA0MVoiLCJlbWFpbCI6ImNhbmRpZGF0ZUB0ZXN0LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczovL2Rldi15Zy51cy5hdXRoMC5jb20vIiwiYXVkIjoiSDlGNlFHNVN6VEtNdjB0Ym1neExqOUxqRzFFS1ZsbEEiLCJpYXQiOjE3MDA0Njk4MTEsImV4cCI6MTcwMDUwNTgxMSwic3ViIjoiYXV0aDB8NjJlMDg5ZmFlYTQ4Mzk4NzQyMmRiNmNjIiwic2lkIjoiY2RyV2o5X1hVUzRVcWpZbzd0M2JHb3V4RktKQ191OGQifQ.r9faukhbp_2wCMjCmVAW8vKW9dHe_oJiRCYwwtV9eFV4vuVNcj4p7ybTlV35gEeZ2kIn0_pzMoWlENJ2T1g2WEDY7TC59nHCXEiqkv1JSGCMAdxaLEzzynUyPmfeaKO3GH0TmMuIxCUTTvr84QoR0zVV2Fv9TD_b2i3uJ7TmJZ8RffqFApQzzQKXAL3QEp_oy-WTgI1QQhRLtZLFFyJfULBoCEKBfgJgazC7xjNAV4W3Ch-gqSPcNiTYPA3Bv6eGoual_4PEQ0QGNJuFC654uC3FQZOQc5X4LFL8DaM8zg_3Or38FCQF-cs0MF1GnqKCJkWvc66b4H_k7UCV02e5Sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
